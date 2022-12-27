@@ -116,3 +116,13 @@ def stich_together(patches, padded_image_shape, target_shape, padding_size=4):
         ] = patches[i]
         col += 1
     return complete_image[0: target_shape[0], 0: target_shape[1], :]
+
+
+'''
+
+process_array: Takes a 3-dimensional image array as input, scales it by dividing each pixel by 255, and optionally adds an additional dimension to the array using np.expand_dims.
+process_output: Takes a 4-dimensional tensor as input and transforms it into a suitable image format by scaling the tensor and converting it to an unsigned 8-bit integer array.
+pad_patch: Takes an image patch, a padding size, and an optional channel_last flag as input, and pads the image patch with the specified padding size. The channel_last flag determines whether the padding is added along the last (channel) dimension of the array.
+unpad_patches: Takes a collection of padded image patches and a padding size as input, and removes the padding from the patches by slicing the array.
+split_image_into_overlapping_patches: Takes an image array, a patch size, and an optional padding size as input, and splits the image into partially overlapping patches. The patches overlap by the specified padding size, and the image is padded to have a size that is a multiple of the patch size.
+stich_together: Takes a collection of patches, the padded image shape, the target image shape, and an optional padding size as input, and reconstructs the original image from the patches. The function scales the patches and the padded image shape by the same factor, and then stitches the patches together using the specified padding size. The resulting image is then cropped to match the target image shape.'''
